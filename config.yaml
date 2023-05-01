@@ -1,0 +1,32 @@
+baseURL: ''
+languageCode: 'en-us'
+title: 'My New Hugo Site'
+
+params:
+  copyright_content: "Copyright © 2023 Hyggelig | Website design and development by: Craft Digital"
+
+menu:
+  main:
+    - name: Home
+      url: /
+      weight: 10
+      params:
+      class: home-menu-item
+    - name: About
+      url: /about/
+      weight: 20
+    - name: Plan
+      url: /plan/
+      weight: 25
+    - name: FAQ
+      url: /faq/
+      weight: 30
+    - name: Contact Us
+      url: /contact-us/
+      weight: 40
+
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

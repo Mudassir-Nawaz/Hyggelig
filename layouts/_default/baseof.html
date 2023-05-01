@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  
+  <title>{{.Title}}</title>
+  <meta name="description" content="{{ .Description }}" />
+  
+  <link rel="canonical" href="{{ .Permalink }}" />
+  
+  <!-- Favicons -->
+  <link href="/favicon.png" rel="icon" />
+  <link href="/favicon.png" rel="apple-touch-icon" />
+  
+  <!-- Vendor CSS Files -->
+  <link href="/css/output.css" rel="stylesheet" />
+  
+  <link href="/font/webfontkit-20230430-153601/stylesheet.css" rel="stylesheet" />
+  
+  <!-- Template Main CSS File -->
+  <!-- <link href="/assets/css/style.css" rel="stylesheet" /> -->
+  
+  <!-- Google Lora Fonts -->
+  
+  
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <!-- Roboto Fonts -->  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+  <!-- Fontawesome -->
+  <script src="https://kit.fontawesome.com/37543023ae.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Header Starts Here -->
+    <header class="bg-[#E5E5E5] py-8 px-12 relative" style="font-family: 'Roboto', sans-serif !important;">
+      <div class="container mx-auto flex justify-center lg:justify-between flex-col lg:flex-row ">
+        <div id="headerLogo" class="flex justify-center">
+            <a href='{{ "/" | relURL }}'><img src='{{ "logo/Hyggelig logo black.png" | relURL }}' alt="{{ .Site.Title }} Logo" width="144" style="max-width: 100px !; "></a>
+        </div>
+        <nav class="flex items-center justify-center z-50">
+            <ul class="flex items-center justify-center">
+                {{ $currentPage := . }}
+                {{ range .Site.Menus.main }}
+                <li class='{{.Params.class}} menu-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} current-menu-item{{end}} mx-2'> <a title="{{ .Name }}" href="{{ .URL }}" class="text-white lg:text-lg text-base">{{ .Pre }} <span>{{ .Name }}</span>
+                {{ if .HasChildren }} <i class="fas fa-angle-down"></i> {{ end }} </a> {{ if .HasChildren }}
+                <ul class="sub-menu">
+                    {{ range .Children }}
+                    <li class='menu-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} current-menu-item{{end}} space-x-2'> <a title="{{ .Name }}" href="{{ .URL }}">{{ .Name }}</a> </li>
+                    {{ end }}
+                </ul>
+                {{ end }} </li>
+                {{ end }}
+            </ul>
+        </nav>
+      </div>
+      <div class="bg-[#FF3C1E] absolute w-[35%] min-h-full right-0 top-0"></div>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+      <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    </header>
+    <!-- Header Ends -->
+
+    <!-- Main -->
+    <main>
+      {{ block "main" . }}
+      {{ end }}
+    </main>
+    <!-- Main ends -->
+
+    <footer class="py-12 px-12 bg-[#FF3C1E]">
+      <div class="container mx-auto">
+          <div>
+              <img src="/logo/hyggelig-logo-white-rgb.png" alt="" width="257" class="mx-auto">
+              <p class="text-white text-center mt-4">{{.Site.Params.copyright_content }}</p>
+          </div>
+      </div>
+    </footer>
+    {{partial "footer.html" }}
+    {{partial "scripts.html"}}
+</body>
+</html>

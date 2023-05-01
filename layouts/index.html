@@ -1,0 +1,66 @@
+{{ define "main" }}
+<section class="relative mb-20">
+    <div class="w-full min-h-[80vh] flex justify-center items-center px-8" style="background-image: url('/images/PXL_20230322_122658417-copy.jpg'); background-position: center right; background-size: cover; background-repeat: no-repeat;">
+        <img src="/logo/Hyggelig logo full banner white.png" alt="" width="759">
+    </div>
+    <div class="bg-[#FF3C1E] absolute w-[35%] min-h-[50px] right-0 -bottom-13" style="border-bottom-left-radius: 8px;"></div>
+</section>
+
+{{with .Params.second_section}}
+{{if.enable}}
+<section class="mt-32">
+    <div class="flex flex-col sm:flex-row">
+        <div class="w-full h-[827px] bg-[#71B9E2] text-white px-8 py-12 xl:px-20 flex justify-center items-center">
+            <div>
+                <h1 class="font-[gelicasemibold] text-4xl md:text-5xl lg:text-6xl xl:text-7xl">{{.heading}}</h1>
+                <p class="text-lg md:text-xl xl:text-2xl sm:mt-10 font-[Roboto]">{{ .detail | markdownify }}</p>
+            </div>
+        </div>
+        <div class="w-full h-[827px]">
+            <img src="{{.img}}" class="min-h-full min-w-full max-h-full max-w-full object-cover" alt="">
+        </div>
+    </div>
+</section>
+{{end}}
+{{end}}
+
+{{with .Params.third_section}}
+{{if.enable}}
+<section class="bg-[#E5E5E5] py-20">
+    <div class="container mx-auto px-8 py-12 xl:px-20">
+        <h1 class="font-[gelica] text-6xl text-center">{{.heading}}</h1>
+        <p class="text-lg md:text-xl xl:text-2xl sm:mt-16 font-[Roboto] text-center">{{.detail|markdownify}}</p>
+        <div class="flex justify-between px-8 mt-8 md:mt-12 flex-wrap">
+            <div class="bg-[#FFD37D] px-4 py-4 rounded-2xl my-4">
+                <img src="/icons/wifi.png" alt="">
+            </div>
+            <div class="bg-[#FFD37D] px-4 py-4 rounded-2xl my-4">
+                <img src="/icons/coffee.png" alt="">
+            </div>
+            <div class="bg-[#FFD37D] px-4 py-4 rounded-2xl my-4">
+                <img src="/icons/time.png" alt="">
+            </div>
+            <div class="bg-[#FFD37D] px-4 py-4 rounded-2xl my-4">
+                <img src="/icons/couch.png" alt="">
+            </div>
+        </div>
+        <div class="flex justify-center mt-12">
+            <a href="{{.btn_link}}" class="text-white mx-auto bg-[#ff3c1e] py-2 px-4 rounded-lg hover:opacity-90 transition-all duration-300">{{.btn}}</a>
+        </div>
+    </div>
+</section>
+{{end}}
+{{end}}
+
+{{with .Params.fourth_section}}
+{{if.enable}}
+<section class="">
+    <div class="w-full min-h-[80vh] flex flex-col justify-center items-center px-8 py-36" style="background-image: url('/images/IMG_20200202_163756-copy.jpg'); background-position: center right; background-size: cover; background-repeat: no-repeat;">
+        <h1 class="font-[gelicamedium] text-6xl text-center text-white mb-8 lg:w-2/3">{{.heading}}</h1>
+        <a href="{{.btn_link}}" class="text-white mx-auto bg-[#71B9E2] py-2 px-4 rounded-lg hover:opacity-90 transition-all duration-300 text-xl">{{.btn}}</a>
+    </div>
+</section>
+{{end}}
+{{end}}
+
+{{end}}

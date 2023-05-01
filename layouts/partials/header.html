@@ -1,0 +1,31 @@
+<header>
+    <div id="headerLogo">
+        <a href='{{ "/" | relURL }}'><img src='{{ "img/logo.svg" | relURL }}' alt="{{ .Site.Title }} Logo" style="max-width: 100px !; "></a>
+    </div>
+    <nav>
+        <a href="javascript:void(0)" id="toggle-menu"><i class="fa fa-bars"></i>&nbsp; Menu</a>
+        <ul>
+            {{ $currentPage := . }}
+            {{ range .Site.Menus.main }}
+            <li class='{{.Params.class}} menu-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} current-menu-item{{end}}'> <a title="{{ .Name }}" href="{{ .URL }}">{{ .Pre }} <span>{{ .Name }}</span>
+            {{ if .HasChildren }} <i class="fas fa-angle-down"></i> {{ end }} </a> {{ if .HasChildren }}
+            <ul class="sub-menu">
+                {{ range .Children }}
+                <li class='menu-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} current-menu-item{{end}}'> <a title="{{ .Name }}" href="{{ .URL }}">{{ .Name }}</a> </li>
+                {{ end }}
+            </ul>
+            {{ end }} </li>
+            {{ end }}
+        </ul>
+    </nav>
+
+    <div id="headerRight" class="flex">
+        <div id="headerCart"><button class="snipcart-checkout"><i class="fas fa-shopping-cart"></i></button></div>
+        {{ if isset .Site.Params "start_book_link" }}
+        <div id="headerBtn"><a href='{{ "/contact-us/submit-your-book-idea" | relURL }}' class="button sml">Submit Your Book Idea</a></div>
+        {{end}}
+    </div>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+</header>

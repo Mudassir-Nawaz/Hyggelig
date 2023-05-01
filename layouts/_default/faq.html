@@ -1,0 +1,143 @@
+{{define "main" }}
+<section class="relative mb-20">
+    <div class="w-full min-h-[60vh] flex justify-center items-center px-8" style="background-image: url('/images/PXL_20220130_154217823-copy.jpg'); background-position: center center; background-size: cover; background-repeat: no-repeat;">
+        <h1 class="font-[gelicamedium] text-6xl text-center text-white mb-8 lg:w-2/3">{{.Title}}</h1>
+    </div>
+    <div class="bg-[#FF3C1E] absolute w-[35%] min-h-[50px] right-0 -bottom-13" style="border-bottom-left-radius: 8px;"></div>
+</section>
+
+
+{{with .Params.faq}}
+{{if.enable}}
+<section class="mt-32 py-12 px-8 ">
+    <div class="container mx-auto">
+        <div class="flex flex-col justify-center items-center">
+            <h1 class="font-[gelicamedium] text-6xl text-center text-[#222222] mb-8 lg:w-2/3">{{.heading}}</h1>
+            <div class="w-[90%] bg-[#71B9E2] px-12 py-16 rounded-2xl">
+                <div class="flex mx-auto">
+                    <div class="w-full h-full flex items-center justify-center md:justify-start mx-auto px-4">
+                        <div class="text-[#313131] rounded-md mx-auto flex flex-wrap justify-between"> 
+                            {{range .faq}}
+                            <div class="md:w-[49%] w-full">
+                                <button class="min-w-full my-2 bg-white hover:bg-whiteSecond transition-all duration-500 px-8 py-4 rounded-md cursor-pointer text-[#313131] border-none outline-none text-left" id="faq-q">{{.question}}<i class="fas fa-plus text-xl ml-4 transition-all duration-300 ease-in-out bg-[#FF3C1E] text-white px-2 py-2 rounded-xl"></i>
+                                
+                                </button>
+                                <div style="max-height: 0;" class="pb-4 -mt-2 pt-4 rounded-b-md w-full transition-all duration-300 ease-in-out hidden overflow-hidden bg-white px-8" id="faq-answer">
+                                    <p class="text-sm mt-1 max-w-[351px]">{{.answer}}</p>
+                                </div>
+                            </div>
+                            {{end}}
+                        </div>
+                        <div class="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{end}}
+{{end}}
+
+
+{{with .Params.fourth_section}}
+{{if.enable}}
+<section class="">
+    <div class="w-full min-h-[80vh] flex flex-col justify-center items-center px-8 py-36" style="background-image: url('/images/IMG_20200202_163756-copy.jpg'); background-position: center right; background-size: cover; background-repeat: no-repeat;">
+        <h1 class="font-[gelicamedium] text-6xl text-center text-white mb-8 lg:w-2/3">{{.heading}}</h1>
+        <a href="{{.btn_link}}" class="text-white mx-auto bg-[#71B9E2] py-2 px-4 rounded-lg hover:opacity-90 transition-all duration-300 text-xl">{{.btn}}</a>
+    </div>
+</section>
+{{end}}
+{{end}}
+
+<!-- Script -->
+<script>
+// FAQ Q
+const acc = document.querySelectorAll('#faq-q');
+
+// For FAQ
+var arrayOfFaq = Array.from(acc)
+// console.log(everyOther)
+
+for (let i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+
+    var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
+}
+
+
+for (let i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    // console.log(this.nextElementSibling)
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight = '0') {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }else{
+      panel.style.maxHeight = null;
+    } 
+    
+  });
+}
+
+
+arrayOfFaq.forEach(element => {
+  
+  Array.prototype.except = function(element) {
+    return this.filter(function(x) { return x !== element; });        
+  }; 
+  element.addEventListener('click', ()=> {
+    var everyOther = arrayOfFaq.except(element)
+    everyOther.forEach(panel => {
+      panel.nextElementSibling.style.display = "none";
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+      let icon = panel.firstElementChild;
+      if(icon.classList.contains("fa-minus")){
+        icon.classList.toggle('fa-minus')
+        icon.classList.toggle('fa-plus')
+        icon.classList.toggle('bg-[#FFD37D]');
+        icon.classList.toggle('bg-[#FF3C1E]');
+      }
+      // console.log(panel.nextElementSibling)
+    })
+  })
+});
+
+
+
+for (let i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    let panel = this.nextElementSibling;
+    
+    let icon = this.firstElementChild;
+    icon.classList.toggle('fa-plus');
+    icon.classList.toggle('fa-minus');
+    if (panel.style.display === "block") {
+      icon.classList.add('fa-minus');
+      icon.classList.remove('fa-plus');
+      icon.classList.add('bg-[#FFD37D]');
+      icon.classList.remove('bg-[#FF3C1E]');
+    } else {
+    icon.classList.add('fa-plus');
+    icon.classList.remove('fa-minus');
+    icon.classList.add('bg-[#FF3C1E]');
+    icon.classList.remove('bg-[#FFD37D]');
+    }
+  });
+}
+
+</script>
+{{end}}
