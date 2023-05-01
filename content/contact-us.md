@@ -13,5 +13,5 @@ fourth_section:
     enable: true
     heading: Located in the Coolest Neighbourhood in lisbon
     btn: Visit Us
-    btn_link: /about/
+    btn_link: /contact-us/
 ---
