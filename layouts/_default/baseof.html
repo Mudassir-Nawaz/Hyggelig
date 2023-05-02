@@ -53,8 +53,13 @@
             <ul class="flex items-center justify-center">
                 {{ $currentPage := . }}
                 {{ range .Site.Menus.main }}
-                <li class='{{.Params.class}} menu-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} current-menu-item{{end}} mx-4'> <a title="{{ .Name }}" href="{{ .URL }}" class="text-white lg:text-lg text-base">{{ .Pre }} <span>{{ .Name }}</span>
-                {{ if .HasChildren }} <i class="fas fa-angle-down"></i> {{ end }} </a> {{ if .HasChildren }}
+                {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
+                {{- $page_url:= $currentPage.Permalink | absLangURL }}
+
+                {{ $menuItem := . }}
+                <li class='{{.Params.class}} menu-item{{if ($currentPage.IsMenuCurrent "main" .) }}  current-menu-item{{end}} mx-4'> <a title="{{ .Name }}" href="{{ .URL }}" class="text-white lg:text-lg text-base hover:border-b-[1px] pb-1 active:border-b-[1px] focus:border-b-[1px] {{ if eq $menuItem.URL $currentPage.RelPermalink }}border-b-[1px]{{ end }}">{{ .Pre }} <span>{{ .Name }}</span><span {{- if eq $menu_item_url $page_url }} class="active" {{- end }}></span>
+                {{ if .HasChildren }} <i class="fas fa-angle-down"></i> {{ end }} </a> 
+                {{ if .HasChildren }}
                 <ul class="sub-menu">
                     {{ range .Children }}
                     <li class='menu-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} current-menu-item{{end}} space-x-2'> <a title="{{ .Name }}" href="{{ .URL }}">{{ .Name }}</a> </li>
@@ -69,6 +74,9 @@
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
       <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     </header>
+    <style>
+      
+    </style>
     <!-- Header Ends -->
 
     <!-- Main -->
