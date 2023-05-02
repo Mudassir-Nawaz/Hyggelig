@@ -4,7 +4,7 @@ layout: "plan"
 
 plan:
     enable: true
-    heading: At Hyggelig, we believe in keeping things simple and focusing on building a strong community of remote workers who have settled in Lisbon.
+    heading: At Hyggelig, We Believe In Keeping Things Simple And Focusing On Building A Strong Community Of Remote Workers Who Have Settled In Lisbon.
     detail: "That's why we only offer one monthly pass package that includes all of the amenities you need for a comfortable and productive workday."
     plan_title: The Plan - €200 
     points:
@@ -20,7 +20,7 @@ plan:
     
 fourth_section:
     enable: true
-    heading: Located in the Coolest Neighbourhood in lisbon
+    heading: Located In The Coolest Neighbourhood In Lisbon
     btn: Visit Us
     btn_link: /contact-us/
 ---

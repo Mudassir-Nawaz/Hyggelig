@@ -21,8 +21,16 @@
   <!-- Template Main CSS File -->
   <!-- <link href="/assets/css/style.css" rel="stylesheet" /> -->
   
+  <style>
+    h1,h2,h3,h4,h5,h6 {
+      font-family: "gelica", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+  </style>
   <!-- Google Lora Fonts -->
-  
+  <!-- Adobe Fonts -->
+  <link rel="stylesheet" href="https://use.typekit.net/jlx0kik.css">
   
   <!-- Link Swiper's CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
@@ -36,7 +44,7 @@
 </head>
 <body>
     <!-- Header Starts Here -->
-    <header class="bg-[#E5E5E5] py-8 px-12 relative" style="font-family: 'Roboto', sans-serif !important;">
+    <header class="bg-[#fff] py-8 px-12 relative" style="font-family: 'Roboto', sans-serif !important;">
       <div class="container mx-auto flex justify-center lg:justify-between flex-col lg:flex-row ">
         <div id="headerLogo" class="flex justify-center">
             <a href='{{ "/" | relURL }}'><img src='{{ "logo/Hyggelig logo black.png" | relURL }}' alt="{{ .Site.Title }} Logo" width="144" style="max-width: 100px !; "></a>
@@ -45,7 +53,7 @@
             <ul class="flex items-center justify-center">
                 {{ $currentPage := . }}
                 {{ range .Site.Menus.main }}
-                <li class='{{.Params.class}} menu-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} current-menu-item{{end}} mx-2'> <a title="{{ .Name }}" href="{{ .URL }}" class="text-white lg:text-lg text-base">{{ .Pre }} <span>{{ .Name }}</span>
+                <li class='{{.Params.class}} menu-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} current-menu-item{{end}} mx-4'> <a title="{{ .Name }}" href="{{ .URL }}" class="text-white lg:text-lg text-base">{{ .Pre }} <span>{{ .Name }}</span>
                 {{ if .HasChildren }} <i class="fas fa-angle-down"></i> {{ end }} </a> {{ if .HasChildren }}
                 <ul class="sub-menu">
                     {{ range .Children }}
@@ -74,7 +82,7 @@
       <div class="container mx-auto">
           <div>
               <img src="/logo/hyggelig-logo-white-rgb.png" alt="" width="257" class="mx-auto">
-              <p class="text-white text-center mt-4">{{.Site.Params.copyright_content }}</p>
+              <p class="text-white text-center mt-4">Copyright © 2023 Hyggelig | Website design and development by: <a href="https://www.craftdigital.ie/" target="_blank">Craft Digital</a></p>
           </div>
       </div>
     </footer>

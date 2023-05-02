@@ -1,10 +1,38 @@
 {{define "main"}}
-<section class="relative mb-20">
-    <div class="w-full min-h-[60vh] flex justify-center items-center px-8" style="background-image: url('/images/IMG_20200202_163756-copy.jpg'); background-position: center center; background-size: cover; background-repeat: no-repeat;">
-        <h1 class="font-[gelicamedium] text-6xl text-center text-white mb-8 lg:w-2/3">{{.Title}}</h1>
+<section class="module relative">
+    <div class="module-inside w-full min-h-[60vh] flex justify-center items-center px-8" style="background-image: url(''); background-position: center right; background-size: cover; background-repeat: no-repeat;">
+        <h1 class=" text-6xl text-center text-white mb-8 lg:w-2/3">{{.Title}}</h1>
     </div>
-    <div class="bg-[#FF3C1E] absolute w-[35%] min-h-[50px] right-0 -bottom-13" style="border-bottom-left-radius: 8px;"></div>
 </section>
+  
+<section class="bg-white w-full h-16 relative">
+<div class="bg-[#FF3C1E] absolute w-[35%] min-h-[30px] right-0 top-0 z-40" style="border-bottom-left-radius: 17px;"></div>
+
+</section>
+  
+<style>
+.module {
+display: grid;
+place-items: center;
+color: #ff43ea;
+}
+.module::before {
+content: "";
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+position: absolute;
+background-image: url(/images/IMG_20200202_163756-copy.jpg);
+background-position: center center;
+background-size: cover;
+background-repeat: no-repeat;
+filter: brightness(80%);
+}
+.module-inside {
+position: relative;
+}
+</style>
 
 {{with .Params.contact}}
 {{if.enable}}
@@ -30,16 +58,16 @@
                         <input type="submit" value="Send Message" id="submit" class="bg-[#FF3C1E] text-white px-4 py-3 rounded-xl text-xl">
                 </form>
             </div>
-            <div class="bg-[#71B9E2] w-full md:w-1/2 rounded-2xl py-12 px-10">
-                <h1 class="font-[gelicamedium] text-3xl md:text-4xl lg:text-5xl text-white mb-8">{{.title}}</h1>
-                <p class="text-lg md:text-xl xl:text-2xl sm:mt-16 font-[Roboto] text-white">{{.detail|markdownify}}</p>
+            <div class="bg-[#71B9E2] w-full md:w-1/2 rounded-2xl py-12 px-14">
+                <h1 class=" text-3xl md:text-4xl lg:text-5xl text-white">{{.title}}</h1>
+                <p class="text-lg md:text-xl xl:text-2xl mt-8 font-[Roboto] text-white pr-0 md:pr-4 lg:pr-16">{{.detail|markdownify}}</p>
                 <div class="mt-8 flex items-center">
-                    <i class="fa-solid fa-envelope text-white text-3xl"></i><span class="text-white ml-3 text-xl">{{.email}}</span>
+                    <a href="mailto:info@hyggelig.pt"><i class="fa-solid fa-envelope text-white text-3xl"></i></a><span class="text-white ml-3 text-xl">{{.email}}</span>
                 </div>
-                <div class="flex mt-3">
-                    <i class="text-white text-3xl mr-3 fa-brands fa-instagram"></i>
-                    <i class="text-white text-3xl mr-3 fa-brands fa-facebook"></i>
-                    <i class="text-white text-3xl mr-3 fa-brands fa-youtube"></i>
+                <div class="flex mt-8">
+                    <a href="https://www.instagram.com/hyggelig.pt/"><i class="text-white text-4xl mr-3 fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/HyggeligLisboa"><i class="text-white text-4xl mr-3 fa-brands fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/@HyggeligLisboa"><i class="text-white text-4xl mr-3 fa-brands fa-youtube"></i></a>
                 </div>
             </div>
         </div>
@@ -51,7 +79,7 @@
 
 <section>
     <div class="container mx-auto py-8 px-8">
-        <h1 class="font-[gelicamedium] text-3xl md:text-4xl lg:text-5xl text-[#222222] mb-8 text-center">Visit us in person</h1>
+        <h1 class=" text-3xl md:text-4xl lg:text-5xl text-[#222222] mb-8 text-center">Visit Us In Person</h1>
         <p class="text-lg md:text-xl xl:text-2xl sm:mt-16 font-[Roboto] text-[#222222] text-center">Hyggelig Coworking, Rua Nova do Desterro 29, 3º dto. 1150-241 Lisboa</p>
         <div style="max-width:100%;list-style:none; transition: none;overflow:hidden;width:NaNpx;height:500px; border-radius: 20px; margin-top: 40px;"><div id="my-map-display" style="height:100%; width:100%;max-width:100%;"><iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=Hyggelig+Coworking,+Rua+Nova+do+Desterro+29,+3º+dto.+1150-241+Lisboa&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe></div><style>#my-map-display img.text-marker{max-width:none!important;background:none!important;}img{max-width:none}</style></div>
     </div>

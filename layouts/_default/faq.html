@@ -1,34 +1,63 @@
 {{define "main" }}
-<section class="relative mb-20">
-    <div class="w-full min-h-[60vh] flex justify-center items-center px-8" style="background-image: url('/images/PXL_20220130_154217823-copy.jpg'); background-position: center center; background-size: cover; background-repeat: no-repeat;">
-        <h1 class="font-[gelicamedium] text-6xl text-center text-white mb-8 lg:w-2/3">{{.Title}}</h1>
-    </div>
-    <div class="bg-[#FF3C1E] absolute w-[35%] min-h-[50px] right-0 -bottom-13" style="border-bottom-left-radius: 8px;"></div>
+<section class="module relative">
+  <div class="module-inside w-full min-h-[60vh] flex justify-center items-center px-8" style="background-image: url(''); background-position: center right; background-size: cover; background-repeat: no-repeat;">
+      <h1 class=" text-6xl text-center text-white mb-8 lg:w-2/3">{{.Title}}</h1>
+  </div>
 </section>
 
+<section class="bg-white w-full h-16 relative">
+<div class="bg-[#FF3C1E] absolute w-[35%] min-h-[30px] right-0 top-0 z-40" style="border-bottom-left-radius: 17px;"></div>
+
+</section>
+
+<style>
+.module {
+display: grid;
+place-items: center;
+color: #ff43ea;
+}
+.module::before {
+content: "";
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+position: absolute;
+background-image: url(/images/PXL_20220130_154217823-copy.jpg);
+background-position: center center;
+background-size: cover;
+background-repeat: no-repeat;
+filter: brightness(60%);
+}
+.module-inside {
+position: relative;
+}
+</style>
 
 {{with .Params.faq}}
 {{if.enable}}
 <section class="mt-32 py-12 px-8 ">
     <div class="container mx-auto">
         <div class="flex flex-col justify-center items-center">
-            <h1 class="font-[gelicamedium] text-6xl text-center text-[#222222] mb-8 lg:w-2/3">{{.heading}}</h1>
+            <h1 class=" text-6xl text-center text-[#222222] mb-8 lg:w-2/3">{{.heading}}</h1>
             <div class="w-[90%] bg-[#71B9E2] px-12 py-16 rounded-2xl">
                 <div class="flex mx-auto">
                     <div class="w-full h-full flex items-center justify-center md:justify-start mx-auto px-4">
-                        <div class="text-[#313131] rounded-md mx-auto flex flex-wrap justify-between"> 
+                        <div class="text-[#313131] mx-auto flex flex-wrap justify-between"> 
                             {{range .faq}}
-                            <div class="md:w-[49%] w-full">
-                                <button class="min-w-full my-2 bg-white hover:bg-whiteSecond transition-all duration-500 px-8 py-4 rounded-md cursor-pointer text-[#313131] border-none outline-none text-left" id="faq-q">{{.question}}<i class="fas fa-plus text-xl ml-4 transition-all duration-300 ease-in-out bg-[#FF3C1E] text-white px-2 py-2 rounded-xl"></i>
+                            <div class="lg:w-[49%] w-full">
+                                <button class="min-w-full my-2 min-h-[80px] bg-white hover:bg-whiteSecond transition-all duration-500 px-8 py-4 rounded-t-md rounded-b-md cursor-pointer text-[#313131] border-none outline-none text-left flex flex-row-reverse justify-between" id="faq-q">
+                                  <i class="fas fa-plus text-xl ml-4 transition-all duration-300 ease-in-out bg-[#FF3C1E] text-white px-2 py-2 rounded-xl"></i>
+                                  <p>
+                                    {{.question}}
+                                  </p>
                                 
                                 </button>
-                                <div style="max-height: 0;" class="pb-4 -mt-2 pt-4 rounded-b-md w-full transition-all duration-300 ease-in-out hidden overflow-hidden bg-white px-8" id="faq-answer">
-                                    <p class="text-sm mt-1 max-w-[351px]">{{.answer}}</p>
+                                <div style="max-height: 0;" class="pb-4 -mt-6 rounded-b-md w-full transition-all duration-300 ease-in-out hidden overflow-hidden bg-white px-8" id="faq-answer">
+                                    <p class="text-sm max-w-[351px]">{{.answer}}</p>
                                 </div>
                             </div>
                             {{end}}
-                        </div>
-                        <div class="">
                         </div>
                     </div>
                 </div>
@@ -41,14 +70,40 @@
 
 
 {{with .Params.fourth_section}}
-{{if.enable}}
-<section class="">
-    <div class="w-full min-h-[80vh] flex flex-col justify-center items-center px-8 py-36" style="background-image: url('/images/IMG_20200202_163756-copy.jpg'); background-position: center right; background-size: cover; background-repeat: no-repeat;">
-        <h1 class="font-[gelicamedium] text-6xl text-center text-white mb-8 lg:w-2/3">{{.heading}}</h1>
-        <a href="{{.btn_link}}" class="text-white mx-auto bg-[#71B9E2] py-2 px-4 rounded-lg hover:opacity-90 transition-all duration-300 text-xl">{{.btn}}</a>
+
+<section class="footer relative">
+    <div class="footer-inside w-full min-h-[80vh] flex justify-center items-center px-8" style="background-image: url(''); background-position: center right; background-size: cover; background-repeat: no-repeat;">
+        <div class="flex flex-col justify-center items-center">
+            <h1 class=" text-6xl text-center text-white mb-8 lg:w-2/3">{{.heading}}</h1>
+            <a href="{{.btn_link}}" class="text-white mx-auto bg-[#71B9E2] py-2 px-4 rounded-lg hover:opacity-90 transition-all duration-300 text-xl">{{.btn}}</a>
+        </div>
     </div>
 </section>
-{{end}}
+
+
+<style>
+.footer {
+    display: grid;
+    place-items: center;
+    color: #ff43ea;
+}
+.footer::before {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url(/images/IMG_20200202_163756-copy.jpg);
+    background-position: center right;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: brightness(80%);
+}
+.footer-inside {
+    position: relative;
+}
+</style>
 {{end}}
 
 <!-- Script -->

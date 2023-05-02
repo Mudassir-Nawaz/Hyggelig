@@ -40,7 +40,7 @@ faq:
     
 fourth_section:
     enable: true
-    heading: Located in the Coolest Neighbourhood in lisbon
+    heading: Located In The Coolest Neighbourhood In Lisbon
     btn: Visit Us
     btn_link: /contact-us/
 ---
