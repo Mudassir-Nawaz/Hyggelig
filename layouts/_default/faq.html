@@ -6,7 +6,7 @@
 </section>
 
 <section class="bg-white w-full h-16 relative">
-<div class="bg-[#FF3C1E] absolute w-[35%] min-h-[30px] right-0 top-0 z-40" style="border-bottom-left-radius: 17px;"></div>
+<div class="bg-[#FF3C1E] absolute w-[48%] xl:w-[38%] min-h-[30px] right-0 top-0 z-40" style="border-bottom-left-radius: 17px;"></div>
 
 </section>
 
@@ -36,17 +36,17 @@ position: relative;
 
 {{with .Params.faq}}
 {{if.enable}}
-<section class="mt-32 py-12 px-8 ">
+<section class="py-12 px-8 ">
     <div class="container mx-auto">
         <div class="flex flex-col justify-center items-center">
-            <h1 class=" text-6xl text-center text-[#222222] mb-8 lg:w-2/3">{{.heading}}</h1>
+            <h1 class=" text-5xl text-center text-[#222222] mb-10 lg:w-2/3">{{.heading}}</h1>
             <div class="w-[90%] bg-[#71B9E2] px-12 py-16 rounded-2xl">
                 <div class="flex mx-auto">
                     <div class="w-full h-full flex items-center justify-center md:justify-start mx-auto px-4">
                         <div class="text-[#313131] mx-auto flex flex-wrap justify-between"> 
                             {{range .faq}}
                             <div class="lg:w-[49%] w-full">
-                                <button class="min-w-full my-2 min-h-[80px] bg-white hover:bg-whiteSecond transition-all duration-500 px-8 py-4 rounded-t-md rounded-b-md cursor-pointer text-[#313131] border-none outline-none text-left flex flex-row-reverse justify-between" id="faq-q">
+                                <button class="min-w-full my-2 min-h-[80px] bg-white hover:bg-whiteSecond transition-all duration-500 px-8 py-4 rounded-t-md rounded-b-md cursor-pointer text-[#313131] border-none outline-none text-left flex flex-row-reverse justify-between items-center" id="faq-q">
                                   <i class="fas fa-plus text-xl ml-4 transition-all duration-300 ease-in-out bg-[#FF3C1E] text-white px-2 py-2 rounded-xl"></i>
                                   <p>
                                     {{.question}}
@@ -54,7 +54,7 @@ position: relative;
                                 
                                 </button>
                                 <div style="max-height: 0;" class="pb-4 -mt-6 rounded-b-md w-full transition-all duration-300 ease-in-out hidden overflow-hidden bg-white px-8" id="faq-answer">
-                                    <p class="text-sm max-w-[351px]">{{.answer}}</p>
+                                    <p class="text-sm max-w-[351px] pt-2">{{.answer}}</p>
                                 </div>
                             </div>
                             {{end}}

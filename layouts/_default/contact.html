@@ -6,7 +6,7 @@
 </section>
   
 <section class="bg-white w-full h-16 relative">
-<div class="bg-[#FF3C1E] absolute w-[35%] min-h-[30px] right-0 top-0 z-40" style="border-bottom-left-radius: 17px;"></div>
+<div class="bg-[#FF3C1E] absolute w-[48%] xl:w-[38%] min-h-[30px] right-0 top-0 z-40" style="border-bottom-left-radius: 17px;"></div>
 
 </section>
   
@@ -36,7 +36,7 @@ position: relative;
 
 {{with .Params.contact}}
 {{if.enable}}
-<section class="mt-32 py-12 px-8 ">
+<section class="py-12 px-8 ">
     <div class="container mx-auto">
         <div class="flex flex-col md:flex-row justify-between items-center">
             <div class=" w-full md:w-1/2 pr-20 mb-12 md:mb-0">
@@ -62,12 +62,12 @@ position: relative;
                 <h1 class=" text-3xl md:text-4xl lg:text-5xl text-white">{{.title}}</h1>
                 <p class="text-lg md:text-xl xl:text-2xl mt-8 font-[Roboto] text-white pr-0 md:pr-4 lg:pr-16">{{.detail|markdownify}}</p>
                 <div class="mt-8 flex items-center">
-                    <a href="mailto:info@hyggelig.pt"><i class="fa-solid fa-envelope text-white text-3xl"></i></a><span class="text-white ml-3 text-xl">{{.email}}</span>
+                    <a href="mailto:info@hyggelig.pt"><i class="fa-solid fa-envelope text-white text-3xl"></i></a><span class="text-white ml-3 text-xl"><a href="mailto:{{.email}}">{{.email}}</a></span>
                 </div>
                 <div class="flex mt-8">
-                    <a href="https://www.instagram.com/hyggelig.pt/"><i class="text-white text-4xl mr-3 fa-brands fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/HyggeligLisboa"><i class="text-white text-4xl mr-3 fa-brands fa-facebook"></i></a>
-                    <a href="https://www.youtube.com/@HyggeligLisboa"><i class="text-white text-4xl mr-3 fa-brands fa-youtube"></i></a>
+                    <a target="_blank" href="https://www.instagram.com/hyggelig.pt/"><i class="text-white text-4xl mr-3 fa-brands fa-instagram"></i></a>
+                    <a target="_blank" href="https://www.facebook.com/HyggeligLisboa"><i class="text-white text-4xl mr-3 fa-brands fa-facebook"></i></a>
+                    <a target="_blank" href="https://www.youtube.com/@HyggeligLisboa"><i class="text-white text-4xl mr-3 fa-brands fa-youtube"></i></a>
                 </div>
             </div>
         </div>

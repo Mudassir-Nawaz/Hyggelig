@@ -4,7 +4,7 @@ layout: "faq"
 
 faq:
     enable: true
-    heading: Frequently Asked questions
+    heading: Frequently Asked Questions
     faq:
         - question: What are the office hours at Hyggelig?
           answer: Our coworking space is open 24/7 for all members with a monthly pass.

@@ -46,8 +46,8 @@
     <!-- Header Starts Here -->
     <header class="bg-[#fff] py-8 px-12 relative" style="font-family: 'Roboto', sans-serif !important;">
       <div class="container mx-auto flex justify-center lg:justify-between flex-col lg:flex-row ">
-        <div id="headerLogo" class="flex justify-center">
-            <a href='{{ "/" | relURL }}'><img src='{{ "logo/Hyggelig logo black.png" | relURL }}' alt="{{ .Site.Title }} Logo" width="144" style="max-width: 100px !; "></a>
+        <div id="headerLogo" class="flex justify-center mb-4 lg:mb-0">
+            <a href='{{ "/" | relURL }}' class="z-40"><img src='{{ "logo/Hyggelig logo black.png" | relURL }}' alt="{{ .Site.Title }} Logo" width="144" style="max-width: 100px !; "></a>
         </div>
         <nav class="flex items-center justify-center z-50">
             <ul class="flex items-center justify-center">
@@ -70,7 +70,7 @@
             </ul>
         </nav>
       </div>
-      <div class="bg-[#FF3C1E] absolute w-[35%] min-h-full right-0 top-0"></div>
+      <div class="bg-[#FF3C1E] absolute w-full lg:w-[48%] xl:w-[38%] min-h-full right-0 top-0 "></div>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
       <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     </header>
