@@ -45,12 +45,15 @@
 <body>
     <!-- Header Starts Here -->
     <header class="bg-[#fff] py-8 px-12 relative" style="font-family: 'Roboto', sans-serif !important;">
-      <div class="container mx-auto flex justify-center lg:justify-between flex-col lg:flex-row ">
-        <div id="headerLogo" class="flex justify-center mb-4 lg:mb-0">
-            <a href='{{ "/" | relURL }}' class="z-40"><img src='{{ "logo/Hyggelig logo black.png" | relURL }}' alt="{{ .Site.Title }} Logo" width="144" style="max-width: 100px !; "></a>
+      <div class="container mx-auto flex justify-between items-center">
+        <div id="headerLogo" class="flex justify-center items-center">
+            <a href='{{ "/" | relURL }}' class="z-40 flex justify-center items-center">
+              <img src='{{ "logo/Hyggelig logo black.png" | relURL }}' alt="{{ .Site.Title }} Logo" width="144" style="max-width: 100px !;" class="lg:block hidden">
+              <img src='{{ "logo/hyggelig-logo-white-rgb.png" | relURL }}' alt="{{ .Site.Title }} Logo" width="144" style="max-width: 100px !;" class="block lg:hidden">
+            </a>
         </div>
-        <nav class="flex items-center justify-center z-50">
-            <ul class="flex items-center justify-center">
+        <nav class="flex items-center justify-end z-50">
+            <ul class="md:flex items-center justify-center hidden">
                 {{ $currentPage := . }}
                 {{ range .Site.Menus.main }}
                 {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
@@ -68,9 +71,26 @@
                 {{ end }} </li>
                 {{ end }}
             </ul>
+            <!-- Hamburger Icon -->
+            <button id="menu-btn" class="block hamburger md:hidden focus:outline-none active:outline-none">
+              <span class="hamburger-top"></span>
+              <span class="hamburger-middle"></span>
+              <span class="hamburger-bottom"></span>
+            </button>
+            <div class="md:hidden z-50">
+              <div id="menu" class="hidden absolute drop-shadow-xl flex-col space-y-3 bg-[#FF3C1E] z-20 my-5 py-3 top-20 right-6 left-6 items-center self-end sm:self-center border-[1px] border-white">
+                {{ $currentPage := . }}
+                {{ range .Site.Menus.main }}
+                {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
+                {{- $page_url:= $currentPage.Permalink | absLangURL }}
+                {{ $menuItem := . }}
+                  <a href="{{ .URL }}" class="text-white hover:scale-110 transition-all">{{ .Name }}</a>
+                {{ end }}
+              </div>
+            </div>
         </nav>
       </div>
-      <div class="bg-[#FF3C1E] absolute w-full lg:w-[48%] xl:w-[38%] min-h-full right-0 top-0 "></div>
+      <div class="bg-[#FF3C1E] absolute w-full lg:w-[48%] xl:w-[38%] min-h-full right-0 top-0"></div>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
       <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     </header>
@@ -94,6 +114,64 @@
           </div>
       </div>
     </footer>
+
+    <script>
+      const btn = document.querySelector('#menu-btn');
+      const nav = document.querySelector('#menu');
+
+      btn.addEventListener('click', () => {
+          btn.classList.toggle('open')
+          nav.classList.toggle('flex')
+          nav.classList.toggle('hidden')
+      })
+    </script>
+    <style>
+      .hamburger {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  transition: all 0.25s;
+  position: relative;
+}
+
+.hamburger-top,
+    .hamburger-middle,
+    .hamburger-bottom {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+
+.hamburger-middle {
+  transform: translateY(7px);
+}
+
+.hamburger-bottom {
+  transform: translateY(14px);
+}
+
+.open {
+  transform: rotate(90deg);
+  transform: translateY(0px);
+}
+
+.open .hamburger-top {
+  transform: rotate(45deg) translateY(6px) translate(6px);
+}
+
+.open .hamburger-middle {
+  display: none;
+}
+
+.open .hamburger-bottom {
+  transform: rotate(-45deg) translateY(6px) translate(-6px);
+}
+    </style>
     {{partial "footer.html" }}
     {{partial "scripts.html"}}
 </body>

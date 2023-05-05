@@ -36,12 +36,12 @@
 
 {{with .Params.second_section}}
 {{if.enable}}
-<section class="mt-20">
+<section class="mt-12 lg:mt-20">
     <div class="flex flex-col sm:flex-row">
-        <div class="w-full h-[727px] bg-[#71B9E2] text-white px-8 xl:px-12 flex justify-center items-center">
+        <div class="w-full h-[660px] sm:h-[727px] bg-[#71B9E2] text-white px-8 xl:px-12 flex justify-center items-center">
             <div>
                 <h1 class=" text-2xl md:text-3xl lg:text-4xl xl:text-[50px] xl:leading-[55px] mt-8">{{.heading}}</h1>
-                <p class="text-lg md:text-xl lg:text-[24px] sm:mt-10 font-[Roboto] font-normal">{{ .detail | markdownify }}</p>
+                <p class="text-lg md:text-xl lg:text-[24px] mt-4 sm:mt-10 font-[Roboto] font-normal">{{ .detail | markdownify }}</p>
             </div>
         </div>
         <div class="w-full h-[727px]">
@@ -54,11 +54,11 @@
 
 {{with .Params.third_section}}
 {{if.enable}}
-<section class="bg-[#fff] py-20">
+<section class="bg-[#fff] py-8 md:py-20">
     <div class="container mx-auto px-8 py-12 xl:px-20">
-        <h1 class=" text-6xl text-center">{{.heading}}</h1>
+        <h1 class="text-4xl lg:text-5xl xl:text-6xl text-center mb-8">{{.heading}}</h1>
         <p class="text-lg md:text-xl xl:text-2xl sm:mt-16 font-[Roboto] text-center">{{.detail|markdownify}}</p>
-        <div class="flex justify-between px-8 mt-8 md:mt-12 flex-wrap">
+        <div class="flex items-center justify-center md:justify-between px-8 mt-8 md:mt-12 flex-wrap">
             <div class="flex flex-col items-center">
                 <div class="bg-[#FFD37D] px-4 py-4 rounded-2xl my-4">
                     <img src="/icons/wifi.png" alt="" width="50px">
@@ -85,7 +85,7 @@
             </div>
         </div>
         <div class="flex justify-center mt-12">
-            <a href="{{.btn_link}}" class="text-white mx-auto bg-[#ff3c1e] py-2 px-4 rounded-lg hover:opacity-90 transition-all duration-300 text-xl">{{.btn}}</a>
+            <a href="{{.btn_link}}" class="text-white mx-auto bg-[#ff3c1e] py-2 px-4 rounded-lg hover:opacity-90 transition-all duration-300 text-base md:text-xl">{{.btn}}</a>
         </div>
     </div>
 </section>
@@ -97,8 +97,8 @@
 <section class="footer relative">
     <div class="footer-inside w-full min-h-[80vh] flex justify-center items-center px-8" style="background-image: url(''); background-position: center right; background-size: cover; background-repeat: no-repeat;">
         <div class="flex flex-col justify-center items-center">
-            <h1 class=" text-6xl text-center text-white mb-8 lg:w-2/3">{{.heading}}</h1>
-            <a href="{{.btn_link}}" class="text-white mx-auto bg-[#71B9E2] py-2 px-4 rounded-lg hover:opacity-90 transition-all duration-300 text-xl">{{.btn}}</a>
+            <h1 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center text-white mb-8 lg:w-2/3">{{.heading}}</h1>
+            <a href="{{.btn_link}}" class="text-white mx-auto bg-[#71B9E2] py-2 px-4 rounded-lg hover:opacity-90 transition-all duration-300 text-base md:text-xl">{{.btn}}</a>
         </div>
     </div>
 </section>
