@@ -14,6 +14,16 @@
   <meta property="og:image" content="https://iridescent-meringue-b69b98.netlify.app/images/hyggelig-coworking-preview-image.png"/>
   <meta property="og:type" content="website" />
   <meta property="og:url" content="{{ .Permalink }}" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="{{.Site.BaseURL}}">
+  {{ if eq .Title "Hyggelig" }}
+    <meta property="twitter:title" content="{{.Title}} - Cozy coworking space in Lisbon" />
+  {{ else }}
+    <meta property="twitter:title" content="{{.Title}} - Hyggelig - Cozy coworking space in Lisbon" />
+  {{ end }}
+  <meta name="twitter:image" content="https://iridescent-meringue-b69b98.netlify.app/images/hyggelig-coworking-preview-image.png">
+  <meta name="twitter:description" content="Hyggelig is a cozy coworking space in Lisbon near Largo de Intendente and Martim Moniz.
+  We offer height-adjustable desks, comfortable chairs and great coworkers.">
 
   <!-- Google Tag Manager -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158866085-1"></script>
