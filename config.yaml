@@ -1,6 +1,6 @@
 baseURL: ''
 languageCode: 'en-us'
-title: 'My New Hugo Site'
+title: 'Hyggelig'
 
 params:
   copyright_content: "Copyright © 2023 Hyggelig | Website design and development by: Craft Digital"
