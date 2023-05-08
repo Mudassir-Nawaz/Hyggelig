@@ -1,5 +1,5 @@
 ---
-title: Homepage
+title: Hyggelig
 
 second_section:
     enable: true

@@ -3,6 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <!-- <meta property="og:title" content="{{.Title}}" /> -->
+  {{ if eq .Title "Hyggelig" }}
+    <meta property="og:title" content="{{.Title}} - Cozy coworking space in Lisbon" />
+  {{ else }}
+    <meta property="og:title" content="{{.Title}} - Hyggelig - Cozy coworking space in Lisbon" />
+  {{ end }}
+  <meta property="og:description" content="Hyggelig is a cozy coworking space in Lisbon near Largo de Intendente and Martim Moniz.
+  We offer height-adjustable desks, comfortable chairs and great coworkers." />
+  <meta property="og:image" content="/images/hyggelig-coworking-preview-image.png" />
 
   <!-- Google Tag Manager -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158866085-1"></script>
